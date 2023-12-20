@@ -1,0 +1,7 @@
+esp32:
+  board: esp32dev
+
+packages:
+  generic: !include common/base-config.yaml
+
+# This config file is useful for the WT32-ETH01 type boards that have ethernet; disabling wifi will allow the ESP32 to (e.g) use it's RF for Bluetooth full time.

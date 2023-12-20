@@ -1,0 +1,58 @@
+substitutions: # NB: these are used in the included packages, if you want to rename them, also update the /base/* files.
+  device_name: outdoor-plug-1
+  device_friendly_name: Outdoor Plug 1
+
+packages:
+  base: !include base/esp8266-base.yaml
+
+ota:
+  password: "TempPass!"
+
+binary_sensor:    
+  - platform: gpio
+    name: button1
+    pin: 
+      number: GPIO12
+      inverted: true
+    on_click:
+      - switch.toggle: relay1
+    on_double_click:
+      - switch.toggle: relay2
+
+switch: 
+  - platform: gpio
+    name: relay1 #left
+    id: relay1
+    pin: GPIO13
+    on_turn_on:
+      - light.turn_on: left_led
+    on_turn_off:
+      - light.turn_off: left_led
+  - platform: gpio
+    name: relay2 #right
+    id: relay2
+    pin: GPIO4
+    on_turn_on:
+      - light.turn_on: right_led
+    on_turn_off:
+      - light.turn_off: right_led
+    
+light:
+  - platform: monochromatic
+    id: left_led
+    output: led1
+  - platform: monochromatic
+    id: right_led
+    output: led2
+
+output:
+  - platform: esp8266_pwm
+    id: led1
+    pin:
+      number: GPIO14
+      inverted: true
+  - platform: esp8266_pwm
+    id: led2
+    pin:
+      number: GPIO3
+      inverted: true

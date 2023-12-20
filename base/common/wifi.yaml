@@ -1,0 +1,15 @@
+wifi:
+  ssid: "YourSSIDHere"
+  password: "YourPSKhere"
+  #domain: .if.youre-into.that-kind-of.thing # Added as suffix, not required but I like it for my AD DS setup 
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${device_friendly_name} BAP" #"BAP" because "Backup AP" even when combined with the device name may exceed the max SSID lenght
+    password: "SomePassword"
+
+sensor:
+  - platform: wifi_signal # I like to include this for historical metrics, can help troubleshooting
+    name: "WiFi signal strength" # And also one day I imagine a nice heatmap of my WiFI :D
+    id: wifi_signal_sensor
+    update_interval: 60s

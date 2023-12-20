@@ -1,0 +1,6 @@
+esp32:
+  board: esp32dev
+
+packages:
+  wifi: !include common/wifi.yaml
+  generic: !include common/base-config.yaml
