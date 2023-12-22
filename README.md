@@ -5,7 +5,7 @@ For now, an opinionated baseline config of how I think best to implement ESPHome
 
 ## The short answer
 1. Clone or otherwise copy the yaml files of this repo into your ESPHome folder (`/config/esphome`).
-1. Edit as appropriate (at least /base/common/wifi.yaml but probably also the ota password in /base/common/base-config.yaml).
+1. Edit as appropriate (at least `/base/common/wifi.yaml` but probably also the ota password in `/base/common/base-config.yaml`).
 1. (If you happen to have a 'bootstrapped' device, e.g. that I gave you)
     1. In the ESPHome gui, 'install' the device, but choose the download option instead of OTA. If prompted, you want the 'old' / ESPHome Flasher file format. 
     1. Connect to the 'backup' AP that the device is providing since presumably can't connect to my wifi :)
